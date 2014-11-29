@@ -9,12 +9,21 @@ create table chat_message (
   user_id                   bigint)
 ;
 
+create table login (
+  user_id                   bigint not null,
+  mail                      varchar(255) not null,
+  password                  varchar(255),
+  constraint pk_login primary key (user_id))
+;
+
 create table user (
   user_id                   bigint not null,
   name                      varchar(255) not null,
   mail                      varchar(255) not null,
   constraint pk_user primary key (user_id))
 ;
+
+create sequence login_seq;
 
 create sequence user_seq;
 
@@ -29,9 +38,13 @@ SET REFERENTIAL_INTEGRITY FALSE;
 
 drop table if exists chat_message;
 
+drop table if exists login;
+
 drop table if exists user;
 
 SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists login_seq;
 
 drop sequence if exists user_seq;
 
