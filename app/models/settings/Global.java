@@ -20,6 +20,15 @@ public class Global extends GlobalSettings {
     public void onStart(Application application) {
         super.onStart(application);
 
+        insertSampleUser();
+    }
+
+    /**
+     * サンプル用のユーザを登録
+     */
+    public void insertSampleUser() {
+        if (User.find.all().size() != 0) return;
+
         Map<String, List<Object>> iniData = (Map<String, List<Object>>) Yaml.load("inidata/sample-data.yml");
         List<Object> users = iniData.get("users");
         Ebean.save(users);
