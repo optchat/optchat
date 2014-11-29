@@ -17,6 +17,7 @@
         <div class="form-box" id="login-box">
             <div class="header">OptChat</div>
             @b3.form(controllers.security.routes.Authentication.authenticate) {
+                @CSRF.formField
                 <div class="body bg-gray">
                     @b3.text(loginForm("mail"), '_label -> null, 'placeholder -> "メールアドレス")
                     @b3.password(loginForm("password"), '_label -> null, 'placeholder -> "パスワード")
