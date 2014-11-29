@@ -12,6 +12,10 @@ public class Authentication extends Controller {
         return ok(login.render(Form.form(Login.class)));
     }
 
+    public static Result logout() {
+        return ok(login.render(Form.form(Login.class)));
+    }
+
     public static Result authenticate() {
         Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
         if (loginForm.hasErrors()) {
