@@ -23,4 +23,8 @@ public class Login extends Model {
 
     /** パスワード */
     public String password;
+
+    /** ファインダー */
+    public static Finder<String, Login> find = new Finder<>(String.class, Login.class);
+
 }
