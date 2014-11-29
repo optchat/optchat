@@ -2,7 +2,7 @@ package controllers.security;
 
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.index;
+import views.html.security.authentication.login;
 
 public class Authentication extends Controller {
 
@@ -10,6 +10,6 @@ public class Authentication extends Controller {
         return ok(login.render());
     }
     public static Result logout() {
-        return ok(logout.render());
+        return ok(login.render());
     }
 }
