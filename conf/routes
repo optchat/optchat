@@ -12,5 +12,8 @@ GET        /webjars/*file        controllers.WebJarAssets.at(file)
 GET        /                     controllers.security.Authentication.login()
 GET        /login                controllers.security.Authentication.login()
 
+# Logout page
+GET        /logout               controllers.security.Authentication.logout()
+
 # Chat page
 GET        /chat                 controllers.chat.Channels.connect()
