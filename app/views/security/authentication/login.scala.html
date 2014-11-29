@@ -1,4 +1,7 @@
 @import helper._
+@import models.request.security.Login
+
+@(loginForm: Form[Login])
 
 @implicitFieldConstructor = @{
     b3.vertical.fieldConstructor
@@ -13,26 +16,20 @@
     <div class="form-box" id="login-box" style="width: 500px;">
         <div class="form-box" id="login-box">
             <div class="header">OptChat</div>
-            <form action="../../index.html" method="post">
+            @b3.form(controllers.security.routes.Authentication.authenticate) {
                 <div class="body bg-gray">
-                    <div class="form-group">
-                        <input type="text" name="userid" class="form-control" placeholder="メールアドレス">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="パスワード">
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="remember_me"> パスワードを保存
-                    </div>
+                    @b3.text(loginForm("mail"), '_label -> null, 'placeholder -> "メールアドレス")
+                    @b3.password(loginForm("password"), '_label -> null, 'placeholder -> "パスワード")
                 </div>
-                <div class="footer">
-                    <button type="submit" class="btn bg-olive btn-block"><i class="fa fa-sign-in"></i> ログイン</button>
+                <div class="footer text-center">
+                    @b3.submit('class -> "btn bg-olive btn-block", 'style -> "width: 250px; margin: auto;") {
+                        <span class="fa fa-sign-in"></span> ログイン }
 
                     <p><a href="#">パスワードを忘れた場合</a></p>
 
                     <a href="register.html" class="text-center">新規アカウント登録</a>
                 </div>
-            </form>
+            }
         </div>
     </div>
 }

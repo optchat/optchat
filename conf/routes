@@ -3,14 +3,20 @@
 # ~~~~
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file         controllers.Assets.at(path="/public", file)
+GET         /assets/*file         controllers.Assets.at(path="/public", file)
 
 # Load webjars path
-GET        /webjars/*file        controllers.WebJarAssets.at(file)
+GET         /webjars/*file        controllers.WebJarAssets.at(file)
 
 # Login page
-GET        /                     controllers.security.Authentication.login()
-GET        /login                controllers.security.Authentication.login()
+GET         /                     controllers.security.Authentication.login()
+GET         /login                controllers.security.Authentication.login()
+
+# Logout page
+GET         /logout               controllers.security.Authentication.logout()
+
+# Login Auth
+POST        /login                controllers.security.Authentication.authenticate()
 
 # Chat page
-GET        /chat                 controllers.chat.Channels.connect()
+GET         /chat                 controllers.chat.Channels.connect()
