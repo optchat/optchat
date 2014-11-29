@@ -1,0 +1,13 @@
+@(title: String, subTitle: String = "")(breadcrumb: Html = Html(""))
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>
+		@title @if(!subTitle.isEmpty){<small>@subTitle</small>}
+	</h1>
+	@if(!breadcrumb.toString().isEmpty) {
+	<ol class="breadcrumb">
+		@breadcrumb
+	</ol>
+	}
+</section>

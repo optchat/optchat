@@ -1,0 +1,33 @@
+@(title: String, htmlClass: String = "", bodyClass: String = "skin-black", moreCss: Html = Html(""), moreJs: Html = Html(""))(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="ja" @if(!htmlClass.isEmpty){class="@htmlClass"}>
+    <head>
+        <meta charset="UTF-8">
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <title>OptChat | @title</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <link rel='stylesheet' media="screen" href='@routes.WebJarAssets.at(WebJarAssets.locate("css/bootstrap.min.css"))'>
+        <link rel='stylesheet' media="screen" href='@routes.WebJarAssets.at(WebJarAssets.locate("font-awesome.min.css"))'>
+        @moreCss
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("libs/AdminLTE/css/AdminLTE.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("libs/jqueryPlugin/css/bootstrap-datetimepicker.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <script src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))' type="text/javascript"></script>
+        <script src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery-ui.min.js"))' type="text/javascript"></script>
+        <script src='@routes.WebJarAssets.at(WebJarAssets.locate("js/bootstrap.min.js"))' type="text/javascript"></script>
+        <script src='@routes.Assets.at("libs/jqueryPlugin/moment.js")' type="text/javascript"></script>
+        <script src='@routes.Assets.at("libs/jqueryPlugin/bootstrap-datetimepicker.min.js")' type="text/javascript"></script>
+        @moreJs
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src='@routes.WebJarAssets.at(WebJarAssets.locate("html5shiv.min.js"))' type="text/javascript"></script>
+            <script src='@routes.WebJarAssets.at(WebJarAssets.locate("respond.min.js"))' type="text/javascript"></script>
+        <![endif]-->
+    </head>
+    <body class="@bodyClass">
+        @content
+    </body>
+</html>

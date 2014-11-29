@@ -1,0 +1,24 @@
+@(title: String, moreCss: Html = Html(""), moreJs: Html = Html(""))(content: Html)
+
+@moreJsEx = {
+@moreJs
+<script src='@routes.Assets.at("libs/AdminLTE/js/app.js")' type="text/javascript"></script>
+<script src='@routes.Assets.at("libs/AdminLTE/js/demo.js")' type="text/javascript"></script>
+}
+
+@moreCssEx = {
+<link rel='stylesheet' media="screen" href='@routes.WebJarAssets.at(WebJarAssets.locate("ionicons.min.css"))'>
+@moreCss
+}
+
+@layout.base(title, moreJs=moreJsEx, moreCss=moreCssEx) {
+<!-- header logo: style can be found in header.less -->
+<!-- メニュー描画領域 -->
+@layout.menu()
+<div class="wrapper row-offcanvas row-offcanvas-left">
+<!-- サイドバー描画領域 -->
+@layout.sidebar("チャット")
+<!-- メインコンテンツ描画領域 -->
+@content
+</div>
+}
