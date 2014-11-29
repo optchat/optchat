@@ -1,0 +1,87 @@
+body.modal-open {
+	padding-right: 0px;
+}
+
+.content {
+	overflow: visible;
+}
+
+.dropdown-menu li {
+	cursor: pointer;
+}
+
+.form-horizontal .control-label {
+	text-align:right;
+}
+
+.highlight {
+	background-color: #FFFF80;
+}
+
+.highlight-active {
+	background-color: #FF8000;
+}
+
+.v-center {
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.global-display-purposes {
+	position: fixed;
+	top: 50px;
+	right: 0;
+	color: rgb(221, 221, 221);
+    background: rgba(0, 0, 0, 0.701961);
+	border-radius: 5px 0px 0px 5px;
+	padding: 10px 15px; "
+	font-size: 16px; "
+	z-index: 999999;
+	cursor: pointer;
+}
+
+.global-display-purposes:hover {
+	background: #666;
+}
+
+.global-display-settings {
+	padding: 10px;
+	position: fixed;
+	top: 20px;
+	right: -200px;
+	background: #fff;
+	border: 3px solid #666;
+	width: 200px;
+	z-index: 999999;
+	border: 3px solid #666;
+	background: #fff;
+	right: -200px;
+	top: 5px;
+	position: fixed;
+}
+
+.global-page-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	font-size: 77%;
+}
+
+.global-page-top a {
+	font-size: 30px;
+	color: rgb(221, 221, 221);
+    background: rgba(0, 0, 0, 0.701961);
+	text-decoration: none;
+	color: #fff;
+	width: 60px;
+	padding: 10px 0;
+	text-align: center;
+	display: block;
+	border-radius: 5px;
+}
+
+.global-page-top a:hover {
+	color: #fff;
+	text-decoration: none;
+	background: #666;
+}
