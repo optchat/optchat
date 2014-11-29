@@ -1,5 +1,7 @@
 package models.entity;
 
+import play.db.ebean.Model;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -9,7 +11,7 @@ import javax.persistence.ManyToOne;
  * Created by raizu on 2014/11/29.
  */
 @Entity
-public class ChatMessage {
+public class ChatMessage extends Model {
 
     /** ID */
     public Long messageId;
