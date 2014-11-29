@@ -1,0 +1,16 @@
+users:
+
+  - !!models.entity.User
+    userId: 1
+    name: いとー
+    mail: itoh@sample.com
+
+  - !!models.entity.User
+    userId: 2
+    name: うら
+    mail: ura@sample.com
+
+  - !!models.entity.User
+    userId: 3
+    name: かじ
+    mail: kaji@sample.com

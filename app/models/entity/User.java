@@ -32,4 +32,17 @@ public class User extends Model {
     /** チャットメッセージ */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     public List<ChatMessage> chatMessages = new ArrayList<>();
+
+    /** ファインダー */
+    public static Finder<Long, User> find = new Finder<>(Long.class, User.class);
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", mail='" + mail + '\'' +
+                ", chatMessages=" + chatMessages +
+                '}';
+    }
 }
