@@ -1,5 +1,6 @@
 package controllers.user;
 
+import models.service.user.UserService;
 import play.data.Form;
 import play.filters.csrf.AddCSRFToken;
 import play.filters.csrf.RequireCSRFCheck;
@@ -22,10 +23,12 @@ public class User extends Controller {
         }
 
         // ユーザーエンティティとログインエンティティを保存
-        models.entity.User user = userForm.get().user;
-        models.entity.Login login = userForm.get().login;
-        user.save();
-        login.save();
+        String name = userForm.get().name;
+        String mail = userForm.get().mail;
+        String password = userForm.get().password;
+
+        UserService.use().createUserEntity(name, mail);
+        UserService.use().createLoginEntity(mail, password);
 
         return redirect(controllers.security.routes.Authentication.login());
     }
