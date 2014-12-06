@@ -1,7 +1,7 @@
 @import helper._
-@import models.request.security.Login
+@import models.request.user.User
 
-@(loginForm: Form[Login])
+@(userForm: Form[User])
 
 @implicitFieldConstructor = @{
     FieldConstructor(helper.materialize.materialField.render)
@@ -15,35 +15,37 @@
     <!-- メインコンテンツ  -->
     <div class="form-box" id="create-box" style="width: 500px;">
         <div class="form-box" id="create-box">
-            <div class="header">OptChat</div>
-            @form(controllers.security.routes.Authentication.authenticate) {
+            <div class="header">新しいユーザーを登録</div>
+            @form(controllers.user.routes.User.create()) {
                 @CSRF.formField
                 <div class="body bg-gray">
-                    @if(loginForm.hasGlobalErrors) {
-                        @for(valiError <- loginForm.globalErrors()) {
+                    @if(userForm.hasGlobalErrors) {
+                        @for(valiError <- userForm.globalErrors()) {
                             <div class="row error-msg">@valiError.message</div>
                         }
                     }
                     <div class="row">
-                        @input(loginForm("mail"), 'fclass -> "col s12") { (id, name, value, args) =>
+                    @input(userForm("name"), 'fclass -> "col s12") { (id, name, value, args) =>
+                        <input type="text" name="@name" id="@id" required>
+                        <label for="@id">名前</label>
+                    }
+                    </div>
+                    <div class="row">
+                        @input(userForm("mail"), 'fclass -> "col s12") { (id, name, value, args) =>
                             <input type="email" name="@name" id="@id" required>
                             <label for="@id">メールアドレス</label>
                         }
                     </div>
                     <div class="row">
-                        @input(loginForm("password"), 'fclass -> "col s12") { (id, name, value, args) =>
+                        @input(userForm("password"), 'fclass -> "col s12") { (id, name, value, args) =>
                             <input type="password" name="@name" id="@id" required>
                             <label for="@id">パスワード</label>
                         }
                     </div>
                 </div>
                 <div class="footer text-center">
-                    <button type="submit" class="btn bg-olive btn-block" style="width: 250px; margin: auto;"><span class="fa fa-sign-in"></span>
-                        ログイン</button>
-
-                    <p><a href="#">パスワードを忘れた場合</a></p>
-
-                    <p><a href="@controllers.user.routes.User.show" class="text-center">新規アカウント登録</a></p>
+                    <button type="submit" class="btn bg-olive btn-block" style="width: 250px; margin: auto;"><span class="fa fa-user"></span>
+                        登録</button>
                 </div>
             }
         </div>
