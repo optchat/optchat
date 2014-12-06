@@ -18,5 +18,9 @@ GET         /logout               controllers.security.Authentication.logout()
 # Login Auth
 POST        /login                controllers.security.Authentication.authenticate()
 
+# Create User page
+GET         /user/create          controllers.user.User.show()
+POST        /user/create          controllers.user.User.create()
+
 # Chat page
 GET         /chat                 controllers.chat.Channels.connect()
