@@ -2,7 +2,11 @@ name := """OptChat"""
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava)
+lazy val root = (project in file("."))
+  .enablePlugins(PlayJava)
+  .configs(UnitTest, ItTest)
+  .settings(inConfig(UnitTest)(Defaults.testTasks): _*)
+  .settings(inConfig(ItTest)(Defaults.testTasks): _*)
 
 scalaVersion := "2.11.1"
 
@@ -28,3 +32,11 @@ libraryDependencies ++= Seq(
   "com.edulify" %% "play-hikaricp" % "1.5.0",
   "org.mindrot" % "jbcrypt" % "0.3m"
 )
+
+lazy val UnitTest = config("unit") extend Test
+
+testOptions in UnitTest := Seq(Tests.Filter(s => !s.startsWith("integration")))
+
+lazy val ItTest = config("it") extend Test
+
+testOptions in ItTest := Seq(Tests.Filter(s => s.startsWith("integration")))
