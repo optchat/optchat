@@ -14,3 +14,21 @@ users:
     userId: 3
     name: かじ
     mail: kaji@sample.com
+
+login_users:
+
+  - !!models.entity.Login
+    userId: 1
+    mail: itoh@sample.com
+    password: $2a$10$WS.vRJo0oxyYDTgteu2xcOZBiwD/CW5LHgdxvzNsMFhFoqBjmRY/a
+
+  - !!models.entity.Login
+    userId: 2
+    mail: ura@sample.com
+    password: $2a$10$oVjvaoF.7m40PywfHGwOz.YrTLvGC8qjVtv9xSvmzlKbck9Tu2g0e
+
+  - !!models.entity.Login
+    userId: 3
+    mail: kaji@sample.com
+    password: $2a$10$roRhLVO.ENLYku5Q/kWDPe1Bs4IQGljuDxyoerPAUfm/GYG9hbxtG
+
