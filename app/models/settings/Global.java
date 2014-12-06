@@ -1,6 +1,7 @@
 package models.settings;
 
 import com.avaje.ebean.Ebean;
+import models.entity.Login;
 import models.entity.User;
 import play.Application;
 import play.GlobalSettings;
@@ -33,7 +34,12 @@ public class Global extends GlobalSettings {
         List<Object> users = iniData.get("users");
         Ebean.save(users);
 
+        List<Object> login = iniData.get("login_users");
+        Ebean.save(login);
+
         List<User> all = User.find.all();
         all.stream().forEach(u -> Logger.info(u.toString()));
+        List<Login> loginUsers = Login.find.all();
+        loginUsers.stream().forEach(u -> Logger.info(u.toString()));
     }
 }
