@@ -12,6 +12,8 @@ parallelExecution in jacoco.Config := false
 
 jacoco.outputDirectory in jacoco.Config := file("target/jacoco")
 
+testOptions in jacoco.Config := Seq(Tests.Filter(s => !s.startsWith("integration")))
+
 jacoco.includes in jacoco.Config := Seq(
   "controllers*",
   "models*"

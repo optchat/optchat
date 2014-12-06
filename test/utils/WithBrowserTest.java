@@ -2,6 +2,7 @@ package utils;
 
 import org.junit.BeforeClass;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.chrome.ChromeDriver;
 import play.libs.F;
 import play.test.Helpers;
@@ -21,6 +22,8 @@ public class WithBrowserTest {
     public static final String SCREENSHOT_PATH = "target/test-screenshots";
     /** ブラウザの画面サイズ */
     private static final Dimension DIMENSION = new Dimension(1920, 1080);
+    /** ブラウザの位置 */
+    private static final Point POINT = new Point(0, 0);
 
     @BeforeClass
     public static void startApp() throws IOException {
@@ -35,6 +38,7 @@ public class WithBrowserTest {
     public void running(F.Callback<TestBrowser> callback) throws Exception{
         ChromeDriver chromeDriver = new ChromeDriver();
         chromeDriver.manage().window().setSize(DIMENSION);
+        chromeDriver.manage().window().setPosition(POINT);
         Helpers.running(Helpers.testServer(PORT), chromeDriver, callback);
     }
 
