@@ -5,6 +5,6 @@
 <div class="input-field @elements.args.get('fclass)">
 @elements.input
 @if(elements.hasErrors) {
-    @elements.errors(elements.lang).mkString(", ")
+    <h6>@elements.errors(elements.lang).mkString(", ")</h6>
 }
 </div>

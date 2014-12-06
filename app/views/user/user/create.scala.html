@@ -26,13 +26,13 @@
                     }
                     <div class="row">
                     @input(userForm("name"), 'fclass -> "col s12") { (id, name, value, args) =>
-                        <input type="text" name="@name" id="@id" required>
+                        <input type="text" name="@name" id="@id" value="@value" required>
                         <label for="@id">名前</label>
                     }
                     </div>
                     <div class="row">
                         @input(userForm("mail"), 'fclass -> "col s12") { (id, name, value, args) =>
-                            <input type="email" name="@name" id="@id" required>
+                            <input type="email" name="@name" id="@id" value="@value" required>
                             <label for="@id">メールアドレス</label>
                         }
                     </div>

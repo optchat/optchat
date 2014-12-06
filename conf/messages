@@ -8,6 +8,7 @@ common.error.notfound=指定した{0}は存在しません
 
 # --- バリデーションエラー
 validation.error.password.unmatch=貴様はまだ青い。出直してこい！
+validation.error.mail.exists=既に登録されているメールアドレスです
 
 # デフォルトメッセージ設定
 
