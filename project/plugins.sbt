@@ -19,3 +19,8 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-mocha" % "1.0.0")
 
 // jacoco
 addSbtPlugin("de.johoop" % "jacoco4sbt" % "2.1.6")
+
+// checkstyle
+libraryDependencies ++= Seq(
+  "com.puppycrawl.tools" % "checkstyle" % "5.5"
+)
