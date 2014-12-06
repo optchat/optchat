@@ -94,3 +94,9 @@ body.modal-open {
     position: absolute;
     top: 0px;"
 }
+
+.error-msg {
+	color: red;
+	margin-bottom: 20px;
+	padding: 0px 7.5px;
+}

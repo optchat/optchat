@@ -3,8 +3,8 @@
 * Generate input according twitter bootstrap rules *
 ***************************************************@
 <div class="input-field @elements.args.get('fclass)">
+@elements.input
 @if(elements.hasErrors) {
     @elements.errors(elements.lang).mkString(", ")
 }
-@elements.input
 </div>

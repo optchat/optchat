@@ -19,8 +19,13 @@
             @form(controllers.security.routes.Authentication.authenticate) {
                 @CSRF.formField
                 <div class="body bg-gray">
+                    @if(loginForm.hasGlobalErrors) {
+                        @for(valiError <- loginForm.globalErrors()) {
+                            <div class="row error-msg">@valiError.message</div>
+                        }
+                    }
                     <div class="row">
-                        @input(loginForm("userId"), 'fclass -> "col s12") { (id, name, value, args) =>
+                        @input(loginForm("mail"), 'fclass -> "col s12") { (id, name, value, args) =>
                             <input type="email" name="@name" id="@id" required>
                             <label for="@id">メールアドレス</label>
                         }
@@ -38,7 +43,7 @@
 
                     <p><a href="#">パスワードを忘れた場合</a></p>
 
-                    <a href="register.html" class="text-center">新規アカウント登録</a>
+                    <p><a href="register.html" class="text-center">新規アカウント登録</a></p>
                 </div>
             }
         </div>
