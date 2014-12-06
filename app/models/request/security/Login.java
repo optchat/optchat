@@ -36,7 +36,7 @@ public class Login implements ValidationAware {
                 .findUnique();
 
         // パスワードチェック
-        if (user != null && BCrypt.checkpw(password, user.password)) {
+        if (user == null || !BCrypt.checkpw(password, user.password)) {
             errors.add(new ValidationError("password", "password unmatch."));
         }
 
