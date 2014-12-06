@@ -6,6 +6,9 @@ common.error.not.equals={0}と{1}が一致しません
 common.error.exists={0}は既に使用されています
 common.error.notfound=指定した{0}は存在しません
 
+# --- バリデーションエラー
+validation.error.password.unmatch=貴様はまだ青い。出直してこい！
+
 # デフォルトメッセージ設定
 
 # --- Constraints

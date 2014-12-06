@@ -85,3 +85,18 @@ body.modal-open {
 	text-decoration: none;
 	background: #666;
 }
+
+#login-box .body {
+    padding-top: 20px;
+}
+
+.absolute-icon {
+    position: absolute;
+    top: 0px;"
+}
+
+.error-msg {
+	color: red;
+	margin-bottom: 20px;
+	padding: 0px 7.5px;
+}

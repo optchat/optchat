@@ -3,13 +3,13 @@ package models.request.chat;
 import models.entity.User;
 import org.junit.Test;
 import play.data.Form;
-import play.test.Helpers;
+import utils.WithAppTest;
 
 import java.util.HashMap;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-public class SayRequestTest {
+public class SayRequestTest extends WithAppTest {
 
     @Test
     public void ユーザIDが設定されいないとエラー() throws Exception {
@@ -36,36 +36,31 @@ public class SayRequestTest {
 
     @Test
     public void ユーザIDがDBに存在しない数値だとエラー() throws Exception {
-        Helpers.running(Helpers.fakeApplication(Helpers.inMemoryDatabase()), () -> {
-            User.find.all().forEach(u -> u.delete());
-            Form<SayRequest> form = Form.form(SayRequest.class).bind(new HashMap<String, String>() {
-                {
-                    put("userId", "1");
-                    put("message", "test");
-                }
-            });
-            assertThat(form.hasErrors()).isTrue();
-            assertThat(form.error("userId")).isNotNull();
+        Form<SayRequest> form = Form.form(SayRequest.class).bind(new HashMap<String, String>() {
+            {
+                put("userId", "1");
+                put("message", "test");
+            }
         });
+        assertThat(form.hasErrors()).isTrue();
+        assertThat(form.error("userId")).isNotNull();
     }
 
     @Test
     public void 正しい情報でユーザが存在する場合はエラー無し() throws Exception {
-        Helpers.running(Helpers.fakeApplication(Helpers.inMemoryDatabase()), () -> {
-            User.find.all().forEach(u -> u.delete());
-            User user = new User();
-            user.userId = 1L;
-            user.name = "test";
-            user.mail = "ee@exe.com";
-            user.save();
+        User.find.all().forEach(u -> u.delete());
+        User user = new User();
+        user.userId = 1L;
+        user.name = "test";
+        user.mail = "ee@exe.com";
+        user.save();
 
-            Form<SayRequest> form = Form.form(SayRequest.class).bind(new HashMap<String, String>() {
-                {
-                    put("userId", "1");
-                    put("message", "test");
-                }
-            });
-            assertThat(form.hasErrors()).isFalse();
+        Form<SayRequest> form = Form.form(SayRequest.class).bind(new HashMap<String, String>() {
+            {
+                put("userId", "1");
+                put("message", "test");
+            }
         });
+        assertThat(form.hasErrors()).isFalse();
     }
 }

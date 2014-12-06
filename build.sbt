@@ -23,9 +23,8 @@ libraryDependencies ++= Seq(
   "org.webjars" % "html5shiv" % "3.7.2",
   "org.webjars" % "respond" % "1.4.2",
   "com.adrianhurt" %% "play-bootstrap3" % "0.1.1",
-  "org.webjars" % "jquery" % "1.11.1",
+  "org.webjars" % "jquery" % "2.1.1",
   "org.webjars" % "jquery-ui" % "1.11.1",
-  "org.webjars" % "bootstrap" % "3.2.0",
   "com.edulify" %% "play-hikaricp" % "1.5.0",
   "org.mindrot" % "jbcrypt" % "0.3m"
 )
