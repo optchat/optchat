@@ -4,7 +4,7 @@
 @(loginForm: Form[Login])
 
 @implicitFieldConstructor = @{
-    b3.vertical.fieldConstructor
+    FieldConstructor(helper.materialize.materialField.render)
 }
 
 @moreJs = {
@@ -16,15 +16,25 @@
     <div class="form-box" id="login-box" style="width: 500px;">
         <div class="form-box" id="login-box">
             <div class="header">OptChat</div>
-            @b3.form(controllers.security.routes.Authentication.authenticate) {
+            @form(controllers.security.routes.Authentication.authenticate) {
                 @CSRF.formField
                 <div class="body bg-gray">
-                    @b3.text(loginForm("mail"), '_label -> null, 'placeholder -> "メールアドレス")
-                    @b3.password(loginForm("password"), '_label -> null, 'placeholder -> "パスワード")
+                    <div class="row">
+                        @input(loginForm("userId"), 'fclass -> "col s12") { (id, name, value, args) =>
+                            <input type="email" name="@name" id="@id" required>
+                            <label for="@id">メールアドレス</label>
+                        }
+                    </div>
+                    <div class="row">
+                        @input(loginForm("password"), 'fclass -> "col s12") { (id, name, value, args) =>
+                            <input type="password" name="@name" id="@id" required>
+                            <label for="@id">パスワード</label>
+                        }
+                    </div>
                 </div>
                 <div class="footer text-center">
-                    @b3.submit('class -> "btn bg-olive btn-block", 'style -> "width: 250px; margin: auto;") {
-                        <span class="fa fa-sign-in"></span> ログイン }
+                    <button type="submit" class="btn bg-olive btn-block" style="width: 250px; margin: auto;"><span class="fa fa-sign-in"></span>
+                        ログイン</button>
 
                     <p><a href="#">パスワードを忘れた場合</a></p>
 
