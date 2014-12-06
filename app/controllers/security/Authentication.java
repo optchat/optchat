@@ -27,7 +27,7 @@ public class Authentication extends Controller {
         }
         session().clear();
         session("userId", Long.toString(loginForm.get().user.userId));
-        return redirect(routes.Authentication.login());
+        return redirect(controllers.chat.routes.Channels.connect());
     }
 
 }
